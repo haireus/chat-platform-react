@@ -1,12 +1,16 @@
-import React from "react";
+import React, { lazy } from "react";
 import "./App.css";
 import { Outlet, Route, Routes } from "react-router-dom";
-import Register from "./pages/Register";
+
+const Register = lazy(() => import("./pages/Register"));
+const Login = lazy(() => import("./pages/Login"));
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Register />}></Route>
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+
       <Route
         path="conversation"
         element={

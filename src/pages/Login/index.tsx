@@ -1,3 +1,10 @@
+import { Page } from "../../styles";
+import { LoginForm } from "./LoginForm";
+
 export default function Login() {
-  return <div>Login page</div>;
+  return (
+    <Page>
+      <LoginForm />
+    </Page>
+  );
 }
