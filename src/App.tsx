@@ -4,6 +4,8 @@ import { Outlet, Route, Routes } from "react-router-dom";
 
 const Register = lazy(() => import("./pages/Register"));
 const Login = lazy(() => import("./pages/Login"));
+const Conversations = lazy(() => import("./pages/Conversations"));
+const ConversationItem = lazy(() => import("./pages/ConversationItem"));
 
 function App() {
   return (
@@ -11,16 +13,8 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
 
-      <Route
-        path="conversation"
-        element={
-          <div>
-            <div>Conversations</div>
-            <Outlet />
-          </div>
-        }
-      >
-        <Route path=":id" element={<div>Conversation ID Page</div>} />
+      <Route path="/conversations" element={<Conversations />}>
+        <Route path=":id" element={<ConversationItem />} />
       </Route>
     </Routes>
   );

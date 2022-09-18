@@ -3,7 +3,7 @@ import { RegisterForm } from "./RegisterForm";
 
 export default function Register() {
   return (
-    <Page>
+    <Page display="flex" justifyContent="center" alignItems="center">
       <RegisterForm />
     </Page>
   );

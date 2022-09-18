@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { PageProps } from "./styleTypes";
 
 export const InputField = styled.input`
   background: inherit;
@@ -51,9 +52,23 @@ export const Button = styled.button`
   }
 `;
 
-export const Page = styled.div`
+export const Page = styled.div<PageProps>`
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: ${(props) => props.display};
+  justify-content: ${(props) => props.justifyContent};
+  align-items: ${(props) => props.alignItems};
+`;
+
+export const ConversationSideBarStyle = styled.aside`
+  background-color: #1f1f1f;
+  height: 100vh;
+  width: 350px;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+export const ConversationItemStyle = styled.div`
+  height: 100vh;
+  margin-left: 350px;
 `;
