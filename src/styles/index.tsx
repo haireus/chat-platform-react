@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { PageProps } from "./styleTypes";
 
+export const SIDEBAR_WIDTH = 400;
+
 export const InputField = styled.input`
   background: inherit;
   outline: none;
@@ -60,15 +62,58 @@ export const Page = styled.div<PageProps>`
 `;
 
 export const ConversationSideBarStyle = styled.aside`
-  background-color: #1f1f1f;
+  background-color: #1a1a1a;
   height: 100vh;
-  width: 350px;
+  width: ${SIDEBAR_WIDTH}px;
   position: absolute;
   top: 0;
   left: 0;
+  border-right: 1px solid #545454;
+
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #2d2d2d;
+  }
+
+  & > header {
+    background-color: #151515;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    height: 60px;
+    border-bottom: 1px solid #545454;
+    position: sticky;
+    top: 0;
+    left: 0;
+    h1 {
+      font-weight: normal;
+    }
+  }
 `;
 
 export const ConversationItemStyle = styled.div`
   height: 100vh;
-  margin-left: 350px;
+  margin-left: ${SIDEBAR_WIDTH}px;
+`;
+
+export const ConversationSideBarContainer = styled.div``;
+
+export const ConversationSideBarItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+  padding: 5px 18px;
+  margin-top: 10px;
+  background-color: #1a1a1a !important;
+  border-bottom: 1px solid #545454;
+  cursor: pointer;
 `;
