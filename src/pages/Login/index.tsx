@@ -1,10 +1,12 @@
-import { Page } from "../../styles";
+import SignInBanner from "../../components/SignInBanner";
+import { SignInPage } from "../../styles";
 import { LoginForm } from "./LoginForm";
 
 export default function Login() {
   return (
-    <Page display="flex" justifyContent="center" alignItems="center">
+    <SignInPage>
+      <SignInBanner />
       <LoginForm />
-    </Page>
+    </SignInPage>
   );
 }

@@ -17,7 +17,7 @@ export const InputField = styled.input`
 
 export const InputContainer = styled.div`
   background-color: #131313;
-  padding: 12px 16px;
+  padding: 2px 16px;
   border-radius: 10px;
   width: 100%;
   box-sizing: border-box;
@@ -39,7 +39,7 @@ export const Button = styled.button`
   font-size: 16px;
   background-color: #2b09ff;
   border-radius: 10px;
-  padding: 25px 0;
+  padding: 15px 0;
   font-weight: bold;
   transform: 250ms background-color ease;
   cursor: pointer;

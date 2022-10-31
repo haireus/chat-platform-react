@@ -1,5 +1,5 @@
 .form {
-  width: 600px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -17,6 +17,7 @@
 
 .loginUser {
   text-align: center;
+  color: rgb(123, 122, 122);
   .login {
     text-decoration: underline;
     color: rgb(0, 85, 255);

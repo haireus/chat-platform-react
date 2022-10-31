@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 import { Button, InputContainer, InputField, InputLabel } from "../../styles";
 import { useForm } from "react-hook-form";
 import styles from "./index.module.scss";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+`;
+
 export const RegisterForm = () => {
   const {
     register,
@@ -16,59 +25,61 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <InputContainer>
-        <InputLabel htmlFor="email">Email</InputLabel>
-        <InputField
-          type={"email"}
-          id="email"
-          autoComplete={"off"}
-          {...register("email", { required: "Email is required" })}
-        />
-      </InputContainer>
-
-      <section className={styles.nameFieldRow}>
+    <Wrapper>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <InputContainer>
-          <InputLabel htmlFor="firstName">First Name</InputLabel>
+          <InputLabel htmlFor="email">Email</InputLabel>
           <InputField
-            type={"text"}
-            id="firstName"
+            type={"email"}
+            id="email"
             autoComplete={"off"}
-            {...register("firstName", { required: "First name is required" })}
+            {...register("email", { required: "Email is required" })}
           />
         </InputContainer>
 
+        <section className={styles.nameFieldRow}>
+          <InputContainer>
+            <InputLabel htmlFor="firstName">First Name</InputLabel>
+            <InputField
+              type={"text"}
+              id="firstName"
+              autoComplete={"off"}
+              {...register("firstName", { required: "First name is required" })}
+            />
+          </InputContainer>
+
+          <InputContainer>
+            <InputLabel htmlFor="lastName">Last Name</InputLabel>
+            <InputField
+              type={"text"}
+              autoComplete={"off"}
+              id="lastName"
+              {...register("lastName", { required: "Last name is required" })}
+            />
+          </InputContainer>
+        </section>
+
         <InputContainer>
-          <InputLabel htmlFor="lastName">Last Name</InputLabel>
+          <InputLabel htmlFor="password">Password</InputLabel>
           <InputField
-            type={"text"}
+            type={"password"}
             autoComplete={"off"}
-            id="lastName"
-            {...register("lastName", { required: "Last name is required" })}
+            id="password"
+            {...register("password", { required: "Password is required" })}
           />
         </InputContainer>
-      </section>
 
-      <InputContainer>
-        <InputLabel htmlFor="password">Password</InputLabel>
-        <InputField
-          type={"password"}
-          autoComplete={"off"}
-          id="password"
-          {...register("password", { required: "Password is required" })}
-        />
-      </InputContainer>
+        <Button className={styles.button} type="submit">
+          Create My Account
+        </Button>
 
-      <Button className={styles.button} type="submit">
-        Create My Account
-      </Button>
-
-      <div className={styles.loginUser}>
-        <span>Already have an account ? </span>
-        <a href="/login" className={styles.login}>
-          Login
-        </a>
-      </div>
-    </form>
+        <div className={styles.loginUser}>
+          <span>Already have an account ? </span>
+          <a href="/login" className={styles.login}>
+            Login
+          </a>
+        </div>
+      </form>
+    </Wrapper>
   );
 };
