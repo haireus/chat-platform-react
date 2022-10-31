@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Button, InputContainer, InputField, InputLabel } from "../../styles";
 import { useForm } from "react-hook-form";
-import styles from "./index.module.scss";
 import styled from "styled-components";
+import { Button, InputContainer, InputField, InputLabel } from "../../styles";
+import { postRegisterUser } from "../../utils/api";
+import { CreateUserParams } from "../../utils/types";
+import styles from "./index.module.scss";
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,11 +17,14 @@ export const RegisterForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<CreateUserParams>();
 
-  console.log(errors);
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = async (data: CreateUserParams) => {
+    try {
+      await postRegisterUser(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

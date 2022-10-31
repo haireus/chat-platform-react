@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button, InputContainer, InputField, InputLabel } from "../../styles";
+import { postLoginUser } from "../../utils/api";
+import { UserCredentialsParams } from "../../utils/types";
 import styles from "./index.module.scss";
 
 const Wrapper = styled.div`
@@ -15,10 +18,18 @@ export const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<UserCredentialsParams>();
+  const navigate = useNavigate();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (data: UserCredentialsParams) => {
+    try {
+      await postLoginUser(data);
+      navigate("/conversations");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <Wrapper>

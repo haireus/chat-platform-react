@@ -10,3 +10,8 @@ export type CreateUserParams = {
   email: string;
   password: string;
 };
+
+export type UserCredentialsParams = {
+  email: string;
+  password: string;
+};
