@@ -4,7 +4,7 @@ import { PageProps } from "./styleTypes";
 export const SIDEBAR_WIDTH = 400;
 
 export const InputField = styled.input`
-  background: inherit;
+  background: #131313 !important;
   outline: none;
   border: none;
   color: #fff;
@@ -116,4 +116,13 @@ export const ConversationSideBarItem = styled.div`
   background-color: #1a1a1a !important;
   border-bottom: 1px solid #545454;
   cursor: pointer;
+`;
+
+export const SignInPage = styled.div`
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+
+  @media screen {
+  }
 `;

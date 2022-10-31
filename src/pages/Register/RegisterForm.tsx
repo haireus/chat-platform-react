@@ -22,6 +22,7 @@ export const RegisterForm = () => {
         <InputField
           type={"email"}
           id="email"
+          autoComplete={"off"}
           {...register("email", { required: "Email is required" })}
         />
       </InputContainer>
@@ -32,6 +33,7 @@ export const RegisterForm = () => {
           <InputField
             type={"text"}
             id="firstName"
+            autoComplete={"off"}
             {...register("firstName", { required: "First name is required" })}
           />
         </InputContainer>
@@ -40,6 +42,7 @@ export const RegisterForm = () => {
           <InputLabel htmlFor="lastName">Last Name</InputLabel>
           <InputField
             type={"text"}
+            autoComplete={"off"}
             id="lastName"
             {...register("lastName", { required: "Last name is required" })}
           />
@@ -50,6 +53,7 @@ export const RegisterForm = () => {
         <InputLabel htmlFor="password">Password</InputLabel>
         <InputField
           type={"password"}
+          autoComplete={"off"}
           id="password"
           {...register("password", { required: "Password is required" })}
         />
